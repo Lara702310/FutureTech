@@ -1,0 +1,59 @@
+@use 'helpers' as *;
+@use 'sass:math';
+
+.container {
+    max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+    @include visually-hidden;
+}
+
+.hidden-mobile {
+    @include mobile {
+        display: none !important;
+    }
+}
+
+.visible-mobile {
+    @include mobile-above {
+        display: none !important;
+    }
+}
+
+
+
+// Декоративные линии на всю ширину экрана ================
+.full-vw-line {
+    position: relative;
+
+    // Базовые стили для любой линии
+    &--top::before,
+    &--bottom::after {
+        content: "";
+        position: absolute;
+        width: calc((100vw - var(--container-width)) / 2);
+        height: rem(1);
+        background-color: var(--color-dark-15);
+    }
+
+    // Вертикальное позиционирование
+    &--top::before {
+        bottom: 100%;
+    }
+    
+    &--bottom::after {
+        top: 100%;
+    }
+
+    // Горизонтальное позиционирование (теперь применяется точечно)
+    &--left {
+        &::before, &::after { right: 100%; left: auto; }
+    }
+
+    &--right {
+        &::before, &::after { left: 100%; right: auto; }
+    }
+}
