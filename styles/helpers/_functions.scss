@@ -11,26 +11,29 @@
 }
 
 @function fluid($max: 100, $min: 10) {
-    $maxViewportWidth: 1920;
+    //? Диапазон экранов, внутри которого будет происходить плавное изменение:
+    $maxViewportWidth: 1920; 
     $minViewportWidth: 390;
 
     // Деление на 16 нужно для перевода пикселей в единицы rem:
     //В этих четырех строках функция переводит в rem максимальный размер, минимальный размер, максимальную ширину экрана и минимальную ширину экрана соответственно:
-    $maxSize: math.div($max, 16);
-    $minSize: math.div($min, 16);
-    $maxWidth: math.div($maxViewportWidth, 16);
-    $minWidth: math.div($minViewportWidth, 16);
+    $maxSize: math.div($max, 16);  // 100 / 16 = 6.25
+    $minSize: math.div($min, 16);  // 10 / 16  = 0.625
+    $maxWidth: math.div($maxViewportWidth, 16); // 1920 / 16 = 120
+    $minWidth: math.div($minViewportWidth, 16);   // 390  / 16 = 24.375
      
     // Расчет наклона (коэффициента изменения):
-    $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+    $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));  // (6.25 - 0.625) / (120 - 24.375) = 5.625 / 95.625 = 0.0588.  ==  slope ≈ 0.0588.
 
     // Расчет точки пересечения с осью Y:
-    $yAxisIntersection: -$minWidth * $slope + $minSize;
+    $yAxisIntersection: -$minWidth * $slope + $minSize; 
+    ////                 -(24.375)  * 0.0588 + 0.625
+    //  $yAxisIntersection  = -0.808
 
     // Формирование и возврат результата:
     @return clamp(
-        #{$minSize * 1rem},// нижняя жесткая граница в rem.
-        #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
-        #{$maxSize * 1rem} //верхняя жесткая граница в rem.
+        #{$minSize * 1rem},// нижняя жесткая граница в rem. //?    0.625 * 1rem = 0.625rem = 10px
+        #{$yAxisIntersection * 1rem} + #{$slope * 100vw},   //?    -0.808rem + 5.88vw
+        #{$maxSize * 1rem} //верхняя жесткая граница в rem. //?    6.25rem = 100px
         );
 }
