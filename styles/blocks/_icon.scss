@@ -26,4 +26,10 @@
             background-image: url("../icons/arrow-to-right-yallow.svg");
         }
     }
+    &--yellow-eye {
+        &::after {
+            background-image: url("../icons/eys.svg");
+        }
+    }
+
 }
