@@ -20,7 +20,7 @@
         background: url('../icons/star_gray.svg') center/contain no-repeat;
 
         &.is-active {
-            background-image: url('../icons/star_yellow.svg');
+            background: url('../icons/star_yellow.svg') center/contain no-repeat;
         }
 
         @include laptop {

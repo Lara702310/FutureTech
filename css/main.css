@@ -1605,7 +1605,7 @@ button[aria-label]::before {
   background: url("../icons/star_gray.svg") center/contain no-repeat;
 }
 .rating-view__star.is-active {
-  background-image: url("../icons/star_yellow.svg");
+  background: url("../icons/star_yellow.svg") center/contain no-repeat;
 }
 @media (width <= 90.06125rem) {
   .rating-view__star {
