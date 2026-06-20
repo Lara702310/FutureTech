@@ -43,17 +43,55 @@
     &--top::before {
         bottom: 100%;
     }
-    
+
     &--bottom::after {
         top: 100%;
     }
 
     // Горизонтальное позиционирование (теперь применяется точечно)
     &--left {
-        &::before, &::after { right: 100%; left: auto; }
+
+        &::before,
+        &::after {
+            right: 100%;
+            left: auto;
+        }
     }
 
     &--right {
-        &::before, &::after { left: 100%; right: auto; }
+
+        &::before,
+        &::after {
+            left: 100%;
+            right: auto;
+        }
     }
+}
+
+.circle-icon {
+
+    --circleSize: #{rem(52)};
+    --circleMarginLeft: #{rem(20)};
+
+    position: relative;
+    min-height:var(--circleSize);
+    padding-right: calc(var(--circleSize) + var(--circleMarginLeft));
+
+    @include laptop {
+        --circleSize: #{rem(44)};
+        --circleMarginLeft: #{rem(14)};
+    }
+
+    @include mobile {
+        --circleSize: #{rem(40)};
+    }
+
+    &::after {
+            @include square(var(--circleSize));
+            @include abs-y;
+            content: "";
+            right: 0;
+            background: url("../icons/arrow_black.svg") center no-repeat var(--color-accent);
+            border-radius: 50%;
+        }
 }

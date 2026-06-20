@@ -4,7 +4,7 @@
     --imageSize:#{rem(80)};
 
     display: flex;
-    align-items: center;
+    align-items: start;
     column-gap: fluid(16, 8);
 
     @include laptop {

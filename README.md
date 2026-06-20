@@ -6,7 +6,12 @@
 
 Project is currently **in progress**.
 
----
+
+
+## 🎨 Design
+
+Figma source file: [FutureTech (Copy)](https://www.figma.com/design/7wjntlFn0RqTGjAxux7np/FutureTech--Copy-?node-id=102-572)
+
 
 ## 📁 Project Structure
 
@@ -25,7 +30,7 @@ FutureTech/
     └── Header.js
 ```
 
----
+
 
 ## 🛠 Tech Stack
 
@@ -33,7 +38,7 @@ FutureTech/
 - SCSS (compiled via Live Sass Compiler)
 - JavaScript (ES Modules)
 
----
+
 
 ## 🚀 Getting Started
 
@@ -42,7 +47,7 @@ FutureTech/
 3. Click **Watch Sass** in the status bar to start SCSS compilation
 4. Open `index.html` with **Live Server**
 
----
+
 
 ## ✅ Features (planned)
 
@@ -56,8 +61,6 @@ FutureTech/
 - [ ] Resources section
 - [ ] Contact form
 
----
 
-## 👩‍💻 Author
 
-Made by — *your name here*
+
