@@ -56,7 +56,7 @@ FutureTech/
 - [x] Metrics block
 - [x] Advantages cards
 - [x] Footer with navigation
-- [ ] News section
+- [x] News section
 - [ ] Podcasts section
 - [ ] Resources section
 - [ ] Contact form
