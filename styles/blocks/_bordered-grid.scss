@@ -10,6 +10,32 @@
 
     &--2-cols {
         --columns: 2;
+        --itemPaddingX: #{rem(80)};
+
+        @include laptop {
+            --itemPaddingX: #{rem(50)};
+        }
+
+        @include mobile-above {
+            .bordered-grid__item {
+                &:nth-child(odd) {
+                    padding-right: var(--itemPaddingX);
+                    border-right: var(--border);
+                }
+
+                &:nth-child(even) {
+                    @include full-vw-centered-line(bottom, auto, 100%, 50%);
+                    padding-left: var(--itemPaddingX);
+                }
+            }
+        }
+
+        @include mobile {
+            --columns: 1;
+            .bordered-grid__item:not(:last-child){
+                border-bottom: var(--border);
+            }
+        }
     }
 
     &--3-cols {
@@ -22,35 +48,37 @@
 
         @include tablet-above {
             .bordered-grid__item {
-            //**  
-            // Выбираем элементы  1-й  и 2-й колонки:
+                //**  
+                // Выбираем элементы  1-й  и 2-й колонки:
 
-            &:nth-child(3n - 2),
-            &:nth-child(3n - 1) {
-                padding-right: var(--itemPaddingX);
-                border-right: var(--border);
-            }
+                &:nth-child(3n - 2),
+                &:nth-child(3n - 1) {
+                    padding-right: var(--itemPaddingX);
+                    border-right: var(--border);
+                }
 
-            // ** Элемент 2-й колонки:
-            &:nth-child(3n - 1) {
-                @include full-vw-centered-line(bottom);
-            }
+                // ** Элемент 2-й колонки:
+                &:nth-child(3n - 1) {
+                    @include full-vw-centered-line(bottom);
+                }
 
-            //**  Выбираем элементы  2-й  и 3-й колонки:           
-            &:nth-child(3n - 1),
-            &:nth-child(3n) {
-                padding-left: var(--itemPaddingX);
+                //**  Выбираем элементы  2-й  и 3-й колонки:           
+                &:nth-child(3n - 1),
+                &:nth-child(3n) {
+                    padding-left: var(--itemPaddingX);
+                }
             }
         }
-        }
+
         @include tablet {
-            --columns:1;
+            --columns: 1;
+
             .bordered-grid__item:not(:last-child) {
                 border-bottom: var(--border);
             }
         }
 
-        
+
     }
 
     &__item {
