@@ -12,6 +12,11 @@
         @include laptop {
             border-radius: rem(10);
         }
+
+        &--small {
+            
+            height: fluid(290, 208);
+        }
     }
 
     &__panel {
@@ -23,6 +28,11 @@
         column-gap: 1rem;
         padding: rem(30);
         transition-duration: var(--transition-duration);
+
+        &--center {
+            justify-content: center;
+            align-items: center;
+        }
 
         &:not(.is-active) {
             @include hide;
@@ -36,8 +46,8 @@
                     rgba(20, 20, 20, 0) 44.27%, #141414 100%);
         }
 
-        *{
-            position: relative;           
+        * {
+            position: relative;
         }
     }
 
@@ -54,7 +64,7 @@
 
         @include hover {
             color: var(--color-accent);
-        }        
+        }
 
         @include laptop {
             --sixe:#{rem(50)};
